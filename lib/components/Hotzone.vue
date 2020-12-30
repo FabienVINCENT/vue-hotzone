@@ -13,6 +13,7 @@
         v-for="(zone, index) in zones"
         :key="index"
         :index="index"
+        :name="zone.name"
         :setting="zone"
         @delItem="removeItem($event)"
         @changeInfo="changeInfo($event)"

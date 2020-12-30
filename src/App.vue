@@ -78,7 +78,8 @@ export default {
         leftPer: 0.1153,
         topPer: 0.238,
         widthPer: 0.2827,
-        url: 'https://github.com/OrangeXC'
+        url: 'https://github.com/OrangeXC',
+        name: "THISISJUSTNAM3"
       })
   },
 }

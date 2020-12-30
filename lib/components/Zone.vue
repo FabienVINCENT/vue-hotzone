@@ -11,7 +11,7 @@
         'hz-m-hoverbox': !hideZone
       }"
     >
-      <li class="hz-u-index" :title="`Zone ${index + 1}`">{{ index + 1 }}</li>
+      <li class="hz-u-index" :title="`Zone ${index + 1}`">{{ name }}</li>
       <li
         title="Delete"
         v-show="!hideZone"
@@ -48,6 +48,7 @@ export default {
   },
   props: [
     'index',
+    'name',
     'setting'
   ],
   mounted () {
