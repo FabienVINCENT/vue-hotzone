@@ -46,13 +46,7 @@ export default {
   data: function () {
     return {
       image: 'https://haitao.nos.netease.com/EbrC2L4UuXFI1CPmWall%20o207T1705221905_1920_1080.jpg',
-      zones: [{
-        heightPer: 0.4374,
-        leftPer: 0.1153,
-        topPer: 0.238,
-        widthPer: 0.2827,
-        url: 'https://github.com/OrangeXC'
-      }]
+      zones: []
     }
   },
   methods: {
@@ -77,7 +71,16 @@ export default {
   },
   components: {
     hotzone
-  }
+  },
+  mounted() {
+    this.zones.push({
+        heightPer: 0.4374,
+        leftPer: 0.1153,
+        topPer: 0.238,
+        widthPer: 0.2827,
+        url: 'https://github.com/OrangeXC'
+      })
+  },
 }
 </script>
 

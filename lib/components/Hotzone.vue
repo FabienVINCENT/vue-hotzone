@@ -27,11 +27,6 @@ import addItem from '../directives/addItem'
 
 export default {
   name: 'HotZone',
-  data () {
-    return {
-      zones: []
-    }
-  },
   props: {
     image: {
       type: String,
@@ -45,8 +40,11 @@ export default {
       type: Number
     }
   },
-  mounted () {
-    this.zones = this.zonesInit.concat()
+  computed: {
+    zones: function(){
+      return this.zonesInit.concat()
+      
+      } 
   },
   methods: {
     changeInfo (res) {
