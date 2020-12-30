@@ -11,9 +11,9 @@
         'hz-m-hoverbox': !hideZone
       }"
     >
-      <li class="hz-u-index" :title="`热区${index + 1}`">{{ index + 1 }}</li>
+      <li class="hz-u-index" :title="`Zone ${index + 1}`">{{ index + 1 }}</li>
       <li
-        title="删除该热区"
+        title="Delete"
         v-show="!hideZone"
         class="hz-u-close hz-icon hz-icon-trash"
         @click.stop="delItem(index)"
