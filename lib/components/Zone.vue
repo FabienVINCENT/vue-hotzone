@@ -13,6 +13,7 @@
     >
       <li class="hz-u-index" :title="`Zone ${index + 1}`">{{ name }}</li>
       <li
+        v-if="showDelete"
         title="Delete"
         v-show="!hideZone"
         class="hz-u-close hz-icon hz-icon-trash"
@@ -49,7 +50,8 @@ export default {
   props: [
     'index',
     'name',
-    'setting'
+    'setting',
+    'showDelete'
   ],
   mounted () {
     this.setZoneInfo(this.setting)

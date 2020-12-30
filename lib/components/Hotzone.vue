@@ -15,6 +15,7 @@
         :index="index"
         :name="zone.name"
         :setting="zone"
+        :showDelete="false"
         @delItem="removeItem($event)"
         @changeInfo="changeInfo($event)"
       ></zone>
