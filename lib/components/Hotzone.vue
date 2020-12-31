@@ -61,7 +61,6 @@ export default {
         }
       });
       this.zones.push(setting)
-      this.hasChange()
       this.$emit('add', setting)
     },
     eraseItem (index = this.zones.length - 1) {
@@ -81,7 +80,6 @@ export default {
     },
     removeItem (index = this.zones.length - 1) {
       this.zones.splice(index, 1)
-      this.hasChange()
       this.$emit('remove', index)
     },
     changeItem (info, index = this.zones.length - 1) {
