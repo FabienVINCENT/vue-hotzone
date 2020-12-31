@@ -1,6 +1,7 @@
 .hz-m-wrap {
   position: relative;
   /*overflow: hidden;*/
+  display: inline-block;
 }
 .hz-m-wrap .hz-u-img {
   display: block;
