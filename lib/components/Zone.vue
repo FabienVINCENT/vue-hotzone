@@ -62,7 +62,7 @@ export default {
       this.zoneLeft = this.getZoneStyle(val.leftPer)
       this.zoneWidth = this.getZoneStyle(val.widthPer)
       this.zoneHeight = this.getZoneStyle(val.heightPer)
-      this.tooSmall = val.widthPer < 0.01 && val.heightPer < 0.01
+      this.tooSmall = val.widthPer < 0.005 && val.heightPer < 0.005
     },
     handlehideZone (isHide = true) {
       if (this.hideZone === isHide) {
