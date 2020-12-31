@@ -15,7 +15,7 @@
       type="text"
       v-for="(zone, index) in zones"
       :key="index"
-      v-model="zone.url"
+      v-model="zone.name"
       :placeholder="`Area ${index + 1} url`"
     >
     <h2>Try click your areas</h2>
@@ -45,7 +45,7 @@ export default {
   name: 'app',
   data: function () {
     return {
-      image: 'https://haitao.nos.netease.com/EbrC2L4UuXFI1CPmWall%20o207T1705221905_1920_1080.jpg',
+      image: 'https://extranet.tami-industries.com/media/drawing/image//drawing/zigzag.gif',
       zones: []
     }
   },
@@ -58,9 +58,10 @@ export default {
     handleRemove (index) {
       this.zones.splice(index, 1)
     },
-    handleChange () {
+    handleChange (zones, index) {
       // eslint-disable-next-line
       console.log('Zones data updated')
+      console.log(index)
     },
     getZoneStyle (val) {
       return `${(val || 0) * 100}%`
@@ -77,7 +78,7 @@ export default {
         heightPer: 0.4374,
         leftPer: 0.1153,
         topPer: 0.238,
-        widthPer: 0.2827,
+        widthPer: 0.1227,
         url: 'https://github.com/OrangeXC',
         name: "THISISJUSTNAM3"
       })
