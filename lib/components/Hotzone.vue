@@ -86,10 +86,10 @@ export default {
     },
     changeItem (info, index = this.zones.length - 1) {
       Object.assign(this.zones[index], info)
-      this.hasChange()
+      this.hasChange(index)
     },
-    hasChange () {
-      this.$emit('change', this.zones)
+    hasChange (index = null) {
+      this.$emit('change', this.zones, index)
     }
   },
   directives: {
