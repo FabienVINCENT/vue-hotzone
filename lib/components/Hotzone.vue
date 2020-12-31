@@ -55,6 +55,11 @@ export default {
       this.changeItem(info, index)
     },
     addItem (setting) {
+      this.zones.forEach(element => {
+        if(!element.name){
+          this.removeItem(element.index);
+        }
+      });
       this.zones.push(setting)
       this.hasChange()
       this.$emit('add', setting)
