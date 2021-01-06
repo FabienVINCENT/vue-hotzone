@@ -11,9 +11,10 @@
         'hz-m-hoverbox': !hideZone
       }"
     >
-      <li class="hz-u-index" :title="`热区${index + 1}`">{{ index + 1 }}</li>
+      <li class="hz-u-index" :title="`Zone ${index + 1}`">{{ name }}</li>
       <li
-        title="删除该热区"
+        v-if="showDelete"
+        title="Delete"
         v-show="!hideZone"
         class="hz-u-close hz-icon hz-icon-trash"
         @click.stop="delItem(index)"
@@ -48,7 +49,9 @@ export default {
   },
   props: [
     'index',
-    'setting'
+    'name',
+    'setting',
+    'showDelete'
   ],
   mounted () {
     this.setZoneInfo(this.setting)
@@ -59,7 +62,7 @@ export default {
       this.zoneLeft = this.getZoneStyle(val.leftPer)
       this.zoneWidth = this.getZoneStyle(val.widthPer)
       this.zoneHeight = this.getZoneStyle(val.heightPer)
-      this.tooSmall = val.widthPer < 0.01 && val.heightPer < 0.01
+      this.tooSmall = val.widthPer < 0.005 && val.heightPer < 0.005
     },
     handlehideZone (isHide = true) {
       if (this.hideZone === isHide) {

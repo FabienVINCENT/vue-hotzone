@@ -13,7 +13,9 @@
         v-for="(zone, index) in zones"
         :key="index"
         :index="index"
+        :name="zone.name"
         :setting="zone"
+        :showDelete="false"
         @delItem="removeItem($event)"
         @changeInfo="changeInfo($event)"
       ></zone>
@@ -27,11 +29,6 @@ import addItem from '../directives/addItem'
 
 export default {
   name: 'HotZone',
-  data () {
-    return {
-      zones: []
-    }
-  },
   props: {
     image: {
       type: String,
@@ -45,8 +42,11 @@ export default {
       type: Number
     }
   },
-  mounted () {
-    this.zones = this.zonesInit.concat()
+  computed: {
+    zones: function(){
+      return this.zonesInit.concat()
+      
+      } 
   },
   methods: {
     changeInfo (res) {
@@ -55,8 +55,12 @@ export default {
       this.changeItem(info, index)
     },
     addItem (setting) {
+      this.zones.forEach(element => {
+        if(!element.name){
+          this.removeItem(element.index);
+        }
+      });
       this.zones.push(setting)
-      this.hasChange()
       this.$emit('add', setting)
     },
     eraseItem (index = this.zones.length - 1) {
@@ -76,15 +80,14 @@ export default {
     },
     removeItem (index = this.zones.length - 1) {
       this.zones.splice(index, 1)
-      this.hasChange()
       this.$emit('remove', index)
     },
     changeItem (info, index = this.zones.length - 1) {
       Object.assign(this.zones[index], info)
-      this.hasChange()
+      this.hasChange(index)
     },
-    hasChange () {
-      this.$emit('change', this.zones)
+    hasChange (index = null) {
+      this.$emit('change', this.zones, index)
     }
   },
   directives: {
